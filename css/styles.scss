@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+// Colors
+$red: #E3170A;
+$darkblue: #011827;
+$gray: #B6BDB5;
+$blue: #36769D;
+$skyblue: #8ACFE5;
+$white: #FFFFFF;
+$bg-color: #E5E5E5;
+
+// Font types
+@mixin normal {
+    font-weight: 400;
+}
+@mixin bold {
+    font-weight: 700;
+}
+
+@mixin italic {
+    font-weight: 400;
+    font-style: italic;
+}
+
+// Button styles
+@mixin btn-primary() {
+    @include bold;
+
+    background-color: $red;
+    color: $white;
+    border-radius: 4px;
+    padding: 1rem 3rem;
+    font-size: 24px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin btn-secondary {
+    @include btn-primary;
+    background-color: $skyblue;
+    color: $darkblue;
+}
+
+@mixin btn-primary-dark {
+    @include btn-primary();
+    background-color: inherit;
+    color: $skyblue;
+    border: .15rem solid $skyblue;
+    padding: calc(1rem - .15rem) calc(3rem - .15rem);
+}
+
+// Default styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: 0;
+    font-family: 'Roboto';
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @include bold;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+
+.sec {
+    width: 100%;
+    height: auto;
+    padding: 0 5%;
+
+    .sec-cont {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+nav {
+    background-color: $darkblue;
+    color: $white;
+    .sec-cont {
+        padding: 1rem 0
+    }
+
+    .logo-cont {
+        width: 100%;
+        margin: auto 0;
+        
+        .logo {
+            display: inline-block;
+            background-image: url('/assets/logo.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 128px;
+            height: 82px;
+            width: 8rem;
+            height: 5rem;
+        }
+   
+        h1 {
+            display: inline-block;
+            height: 100%;
+            text-align: end;
+            pointer-events: none;
+            margin-left: .8rem;
+            transform: translateY(-.7rem);
+            font-size: 2.3rem;
+        }
+    }
+
+    menu {
+        width: 100%;
+        height: 3.2rem;
+
+        ul {
+            width: 80%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding-bottom: .2rem;
+
+            a {
+                color: $white;
+
+                &:hover {
+                    color: $skyblue;
+                }
+            }
+        }
+    }
+}
+
+.banner {
+    width: 100%;
+    height: 30rem;
+    background-image: url('/assets/banner.png');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    >div {
+        position: absolute;
+        top: 100%; right: 50%;
+        transform: translate(50%,-50%);
+        .btnOne { @include btn-primary(); margin-right: 1rem}
+        .btnTwo { @include btn-secondary(); }
+    }
+}
+
+.reviews {
+    margin: 10rem 0;
+    .sec-cont {display: flex; justify-content: space-between;}
+    .review {
+        width: 45%;
+        height: auto;
+        display: flex;
+
+        .user-cont {
+            width: auto;
+            height: 100%;
+            margin-right: 1rem;
+            .user-icon {
+                width: 5rem;
+                height: 5rem;
+                background-image: url('/assets/user.svg');
+                background-size: cover;
+                background-position: top;
+                float: left;
+            }
+        }
+
+        .description {
+            p { font-size: 1.1rem}
+            .review-text {
+                @include italic();
+                font-size: 1.5rem;    
+                margin-bottom: .7rem;
+            }
+        }
+    }
+}
+
+.challenges {
+    margin: 5rem 0;
+
+    .star, .star-empty {
+        background-image: url('/assets/star.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 1rem;
+        height: 1rem;
+        margin-right: .2rem;
+    }
+    .star-empty {
+        background-image: url('/assets/star-empty.svg');
+    }
+
+    .main-title {
+        text-align: center;
+        @include normal();
+        font-size: 1.5rem;
+        margin: 4rem;
+    }
+
+    .boxes {
+        display: flex;
+        justify-content: space-between;
+
+        .box {
+            width: 28%;
+            height: auto;
+            background-color: $white;
+            border-radius: 8px;
+            box-shadow: 0 4px 3px 0 rgb(32 33 36 / 28%);
+
+            .box-img {
+                background-image: url('/assets/banner.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 8px 8px 0 0;
+                height: 14rem;
+            }
+
+            .content {
+                padding: 1rem;
+                
+                >h2 {
+                    @include normal();
+                }
+
+                .star-part-cont {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin: .2rem 0 1.3rem 0;
+
+                    .stars {
+                        display: flex;
+                    }
+                }
+
+                .button-cont {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 1.3rem;
+                    >button {
+                        @include btn-primary();
+                        padding: .5rem 1rem;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .btns-cont {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 5rem 0;
+        
+        .btn1 {
+            margin-right: 1rem;
+            @include btn-primary();
+        }
+        .btn2 {
+            @include btn-secondary();
+        }
+    }
+}
+
+.subinfo {
+    background-color: $darkblue;
+    .sec-cont {
+        height: 30rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    p {
+        text-align: center;
+        color: $white;
+        font-size: 1.5rem;
+        max-width: 60%;
+        height: auto;
+    }
+
+    button  {
+        margin-top: 2rem;
+        @include btn-primary-dark();
+    }
+}
+
+.blocks {
+    .blocks-cont {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+
+        .block {
+            width: 50%;
+            height: 30rem;
+        }
+    
+        .block1, .block4 {
+            background-image: url('/assets/img-one.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .block2, .block3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 6rem;
+        }
+    
+        .block4{
+            background-image: url('/assets/img-two.png');
+        }
+
+        button {
+            @include btn-primary();
+            padding: .7rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+}
+@media (max-width: 1400px) {
+    .blocks {
+        padding: 0;
+
+        .sec-cont  {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .blocks-cont {
+            .block2, .block3 {padding: 0 8rem;}
+        }
+    }
+    
+}
+
+footer {
+    background-color: $darkblue;
+    margin-top: 10rem;
+    color: $white;
+    
+    a, h5, p {
+        color: $white;
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: .6rem;
+    }
+
+    a {
+        margin-bottom: .2rem;
+    }
+
+    h5 {
+        pointer-events: none;
+    }
+
+    a:hover {color: $skyblue;}
+
+    .sec-cont {
+        padding: 13rem 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-text {
+        width: 40%;
+    }
+
+    .links {
+        display: flex;
+
+        >div {
+            width: 10rem;
+        }
+    }
+}
