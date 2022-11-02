@@ -38,6 +38,7 @@ nav .sec-cont {
   padding: 1rem 0;
 }
 nav .logo-cont {
+  display: block;
   width: 100%;
   margin: auto 0;
 }
@@ -61,6 +62,9 @@ nav .logo-cont h1 {
   transform: translateY(-0.7rem);
   font-size: 2.3rem;
 }
+nav .logo-cont h1 span {
+  margin-right: 0.58rem;
+}
 nav menu {
   width: 100%;
   height: 3.2rem;
@@ -81,6 +85,40 @@ nav menu ul a:hover {
   color: #8ACFE5;
 }
 
+@media (max-width: 950px) {
+  nav .sec-cont {
+    position: relative;
+  }
+  nav .logo-cont {
+    width: 100%;
+  }
+  nav .logo-cont .logo {
+    transform: translateY(0.2rem);
+  }
+  nav .logo-cont h1 {
+    height: 5rem;
+    text-align: left;
+    line-height: 1.7rem;
+    font-size: 24px;
+    transform: translateY(0);
+  }
+  nav .logo-cont h1 span {
+    display: block;
+  }
+  nav menu {
+    display: none;
+  }
+  nav .hamburger {
+    margin-top: 0.3rem;
+    float: right;
+    width: 51px;
+    height: 32px;
+    background-image: url("/assets/hamburger.svg");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+}
 .banner {
   width: 100%;
   height: 30rem;
@@ -91,6 +129,10 @@ nav menu ul a:hover {
 }
 .banner > div {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
   top: 100%;
   right: 50%;
   transform: translate(50%, -50%);
@@ -121,6 +163,26 @@ nav menu ul a:hover {
   cursor: pointer;
 }
 
+@media (max-width: 950px) {
+  .banner > div {
+    top: 120%;
+    flex-direction: column-reverse;
+    padding: 0 5%;
+    justify-content: unset;
+    align-items: center;
+  }
+  .banner > div .btnOne, .banner > div .btnTwo {
+    margin-right: 0;
+    font-size: 24px;
+  }
+  .banner > div .btnOne {
+    font-size: 16px;
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: #36769D;
+    text-decoration: underline;
+  }
+}
 .reviews {
   margin: 10rem 0;
 }
@@ -156,6 +218,24 @@ nav menu ul a:hover {
   margin-bottom: 0.7rem;
 }
 
+@media (max-width: 950px) {
+  .reviews {
+    margin: 15rem 0 7rem 0;
+  }
+  .reviews .sec-cont {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .reviews .sec-cont::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .reviews .review {
+    min-width: 100%;
+    margin-right: 2rem;
+  }
+}
 .challenges {
   margin: 5rem 0;
 }
@@ -174,7 +254,7 @@ nav menu ul a:hover {
 .challenges .main-title {
   text-align: center;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 4rem;
 }
 .challenges .boxes {
@@ -201,6 +281,7 @@ nav menu ul a:hover {
 }
 .challenges .boxes .box .content > h2 {
   font-weight: 400;
+  font-size: 28px;
 }
 .challenges .boxes .box .content .star-part-cont {
   width: 100%;
@@ -210,6 +291,12 @@ nav menu ul a:hover {
 }
 .challenges .boxes .box .content .star-part-cont .stars {
   display: flex;
+}
+.challenges .boxes .box .content .star-part-cont p {
+  font-size: 14px;
+}
+.challenges .boxes .box .content .description {
+  font-size: 18px;
 }
 .challenges .boxes .box .content .button-cont {
   width: 100%;
@@ -224,8 +311,8 @@ nav menu ul a:hover {
   border-radius: 4px;
   padding: 1rem 3rem;
   font-size: 24px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  font-size: 16px;
 }
 .challenges .boxes .box .content .button-cont > button:hover {
   cursor: pointer;
@@ -262,6 +349,49 @@ nav menu ul a:hover {
   cursor: pointer;
 }
 
+@media (max-width: 950px) {
+  .challenges {
+    padding: 0;
+  }
+  .challenges .main-title {
+    text-align: center;
+    margin: 4rem 0;
+    padding: 0 5%;
+  }
+  .challenges .boxes {
+    padding-left: 15%;
+    justify-content: unset;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .challenges .boxes::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .challenges .boxes .box {
+    min-width: 85%;
+    margin-right: 2rem;
+    box-shadow: none;
+  }
+  .challenges .btns-cont {
+    flex-direction: column-reverse;
+    padding: 0 5%;
+    justify-content: unset;
+    align-items: center;
+  }
+  .challenges .btns-cont .btn1, .challenges .btns-cont .btn2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  .challenges .btns-cont .btn1 {
+    font-size: 16px;
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: #36769D;
+    text-decoration: underline;
+  }
+}
 .subinfo {
   background-color: #011827;
 }
@@ -296,6 +426,11 @@ nav menu ul a:hover {
   cursor: pointer;
 }
 
+@media (max-width: 950px) {
+  .subinfo p {
+    max-width: 100%;
+  }
+}
 .blocks .blocks-cont {
   width: 100%;
   height: auto;
@@ -311,13 +446,29 @@ nav menu ul a:hover {
   background-size: cover;
   background-position: center;
 }
+.blocks .blocks-cont .block1 {
+  order: 1;
+}
+.blocks .blocks-cont .block2 {
+  order: 2;
+}
+.blocks .blocks-cont .block3 {
+  order: 3;
+}
 .blocks .blocks-cont .block2, .blocks .blocks-cont .block3 {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 6rem;
 }
+.blocks .blocks-cont .block2 h2, .blocks .blocks-cont .block3 h2 {
+  font-size: 2rem;
+}
+.blocks .blocks-cont .block2 p, .blocks .blocks-cont .block3 p {
+  font-size: 1.5rem;
+}
 .blocks .blocks-cont .block4 {
+  order: 4;
   background-image: url("/assets/img-two.png");
 }
 .blocks .blocks-cont button {
@@ -328,13 +479,13 @@ nav menu ul a:hover {
   padding: 1rem 3rem;
   font-size: 24px;
   padding: 0.7rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 .blocks .blocks-cont button:hover {
   cursor: pointer;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
   .blocks {
     padding: 0;
   }
@@ -344,6 +495,25 @@ nav menu ul a:hover {
   }
   .blocks .blocks-cont .block2, .blocks .blocks-cont .block3 {
     padding: 0 8rem;
+  }
+}
+@media (max-width: 1000px) {
+  .blocks .blocks-cont {
+    flex-flow: unset;
+    flex-direction: column;
+  }
+  .blocks .blocks-cont .block {
+    width: 100%;
+    height: 25rem;
+  }
+  .blocks .blocks-cont .block2, .blocks .blocks-cont .block3 {
+    padding: 0 5%;
+  }
+  .blocks .blocks-cont .block3 {
+    order: 4;
+  }
+  .blocks .blocks-cont .block4 {
+    order: 3;
   }
 }
 footer {
@@ -379,4 +549,23 @@ footer .links {
 }
 footer .links > div {
   width: 10rem;
+}
+
+@media (max-width: 950px) {
+  footer .sec-cont {
+    padding: 5rem 0;
+    flex-direction: column;
+    width: 100%;
+  }
+  footer .sec-cont .footer-text {
+    width: inherit;
+    margin-bottom: 1.8rem;
+  }
+  footer .sec-cont .links {
+    flex-direction: column;
+    width: inherit;
+  }
+  footer .sec-cont .links > div.site {
+    margin-bottom: 1.8rem;
+  }
 }
