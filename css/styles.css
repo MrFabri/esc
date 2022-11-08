@@ -37,23 +37,22 @@ nav {
 nav .sec-cont {
   padding: 1rem 0;
 }
-nav .logo-cont {
+nav .logo-hbg-cont {
   display: block;
   width: 100%;
+  height: auto;
   margin: auto 0;
 }
-nav .logo-cont .logo {
+nav .logo-hbg-cont .logo {
   display: inline-block;
   background-image: url("/assets/logo.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 128px;
-  height: 82px;
   width: 8rem;
   height: 5rem;
 }
-nav .logo-cont h1 {
+nav .logo-hbg-cont h1 {
   display: inline-block;
   height: 100%;
   text-align: end;
@@ -62,7 +61,7 @@ nav .logo-cont h1 {
   transform: translateY(-0.7rem);
   font-size: 2.3rem;
 }
-nav .logo-cont h1 span {
+nav .logo-hbg-cont h1 span {
   margin-right: 0.58rem;
 }
 nav menu {
@@ -86,30 +85,27 @@ nav menu ul a:hover {
 }
 
 @media (max-width: 950px) {
-  nav .sec-cont {
-    position: relative;
-  }
-  nav .logo-cont {
+  nav .logo-hbg-cont {
     width: 100%;
   }
-  nav .logo-cont .logo {
+  nav .logo-hbg-cont .logo {
     transform: translateY(0.2rem);
   }
-  nav .logo-cont h1 {
-    height: 5rem;
+  nav .logo-hbg-cont h1 {
+    height: auto;
     text-align: left;
     line-height: 1.7rem;
     font-size: 24px;
-    transform: translateY(0);
+    transform: translateY(-0.1rem);
   }
-  nav .logo-cont h1 span {
+  nav .logo-hbg-cont h1 span {
     display: block;
   }
   nav menu {
     display: none;
   }
   nav .hamburger {
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
     float: right;
     width: 51px;
     height: 32px;
@@ -120,13 +116,20 @@ nav menu ul a:hover {
   }
 }
 @media (max-width: 500px) {
-  nav .logo-cont .logo {
+  nav .logo-hbg-cont .logo {
+    transform: translateY(0.1rem);
     width: 6rem;
     height: 4rem;
   }
-  nav .logo-cont h1 {
-    font-size: 18px;
-    line-height: 1.4rem;
+  nav .logo-hbg-cont h1 {
+    font-size: 20px;
+    line-height: 1.25rem;
+    transform: translateY(-0.2rem);
+  }
+  nav .logo-hbg-cont .hamburger {
+    margin-top: 0.5rem;
+    width: 2.6rem;
+    height: 1.63rem;
   }
 }
 .banner {
@@ -134,7 +137,7 @@ nav menu ul a:hover {
   height: 30rem;
   background-image: url("/assets/banner.png");
   background-size: cover;
-  background-position: top;
+  background-position: center;
   position: relative;
 }
 .banner > div {
@@ -200,6 +203,12 @@ nav menu ul a:hover {
   .banner > div {
     bottom: -150%;
   }
+  .banner > div .btnOne, .banner > div .btnTwo {
+    font-size: 20px;
+  }
+  .banner > div .btnOne {
+    font-size: 15px;
+  }
 }
 .reviews {
   margin: 10rem 0;
@@ -244,14 +253,34 @@ nav menu ul a:hover {
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
+    padding: 0 1rem;
   }
   .reviews .sec-cont::-webkit-scrollbar {
     width: 0;
     height: 0;
+    display: none;
   }
   .reviews .review {
     min-width: 100%;
-    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+  .reviews .review:first-child {
+    margin-left: 0;
+  }
+  .reviews .review .description .space {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .reviews .review .user-cont .user-icon {
+    width: 4rem;
+    height: 4rem;
+  }
+  .reviews .review .description p {
+    font-size: 0.9rem;
+  }
+  .reviews .review .description .review-text {
+    font-size: 1.2rem;
   }
 }
 .challenges {
@@ -297,7 +326,7 @@ nav menu ul a:hover {
 .challenges .boxes .box .content {
   padding: 1rem;
 }
-.challenges .boxes .box .content > h2 {
+.challenges .boxes .box .content > .title {
   font-weight: 400;
   font-size: 28px;
 }
@@ -305,6 +334,7 @@ nav menu ul a:hover {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0.2rem 0 1.3rem 0;
 }
 .challenges .boxes .box .content .star-part-cont .stars {
@@ -371,6 +401,10 @@ nav menu ul a:hover {
   .challenges {
     padding: 0;
   }
+  .challenges .star, .challenges .star-empty {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
   .challenges .main-title {
     text-align: center;
     margin: 4rem 0;
@@ -386,11 +420,22 @@ nav menu ul a:hover {
   .challenges .boxes::-webkit-scrollbar {
     width: 0;
     height: 0;
+    display: none;
   }
   .challenges .boxes .box {
     min-width: 85%;
     margin-right: 2rem;
     box-shadow: none;
+  }
+  .challenges .boxes .box .content .star-part-cont {
+    justify-content: unset;
+  }
+  .challenges .boxes .box .content .star-part-cont .stars {
+    margin-right: 0.5rem;
+    transform: translateY(-0.05rem);
+  }
+  .challenges .boxes:first-child {
+    margin: 15% !important;
   }
   .challenges .btns-cont {
     flex-direction: column-reverse;
@@ -408,6 +453,33 @@ nav menu ul a:hover {
     background-color: rgba(0, 0, 0, 0);
     color: #36769D;
     text-decoration: underline;
+  }
+}
+@media (max-width: 500px) {
+  .challenges .main-title {
+    font-size: 1.6rem;
+  }
+  .challenges .boxes .box .box-img {
+    height: 12rem;
+  }
+  .challenges .boxes .box .content .title {
+    font-size: 20px;
+  }
+  .challenges .boxes .box .content .star-part-cont p {
+    font-size: 12px;
+  }
+  .challenges .boxes .box .content .description {
+    font-size: 14px;
+  }
+  .challenges .boxes .box .content .button-cont button {
+    padding: 0.7rem 1.5rem;
+    font-size: 15px;
+  }
+  .challenges .btns-cont .btn1, .challenges .btns-cont .btn2 {
+    font-size: 20px;
+  }
+  .challenges .btns-cont .btn1 {
+    font-size: 15px;
   }
 }
 .subinfo {
@@ -447,6 +519,14 @@ nav menu ul a:hover {
 @media (max-width: 950px) {
   .subinfo p {
     max-width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .subinfo p {
+    font-size: 1.3rem;
+  }
+  .subinfo button {
+    font-size: 20px;
   }
 }
 .blocks .blocks-cont {
@@ -534,6 +614,17 @@ nav menu ul a:hover {
     order: 3;
   }
 }
+@media (max-width: 500px) {
+  .blocks .blocks-cont .block h2 {
+    font-size: 1.5rem;
+  }
+  .blocks .blocks-cont .block p {
+    font-size: 1.1rem;
+  }
+  .blocks .blocks-cont .block button {
+    font-size: 1.1rem;
+  }
+}
 footer {
   background-color: #011827;
   margin-top: 10rem;
@@ -583,7 +674,15 @@ footer .links > div {
     flex-direction: column;
     width: inherit;
   }
-  footer .sec-cont .links > div.site {
+  footer .sec-cont .links a {
+    text-decoration: none;
+  }
+  footer .sec-cont .links .site {
     margin-bottom: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  footer a, footer h5, footer p {
+    font-size: 0.9rem;
   }
 }
