@@ -17,6 +17,7 @@ h5 {
 }
 
 body {
+  position: unset;
   background-color: #E5E5E5;
 }
 
@@ -121,9 +122,11 @@ nav menu ul .close {
   @keyframes fadeIn {
     0% {
       opacity: 0;
+      scale: 0.95;
     }
     100% {
       opacity: 1;
+      scale: 1;
     }
   }
   nav menu {
@@ -138,7 +141,7 @@ nav menu ul .close {
     padding: 3%;
   }
   nav menu ul {
-    animation: fadeIn 1s;
+    animation: fadeIn 0.7s;
     position: relative;
     width: 100%;
     height: 100%;
@@ -149,8 +152,9 @@ nav menu ul .close {
     justify-content: center;
   }
   nav menu ul a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     padding: 2rem 1rem;
+    text-decoration: none;
   }
   nav menu ul .close {
     display: block;
@@ -159,8 +163,8 @@ nav menu ul .close {
     right: 1.5rem;
     background-image: url("./../assets/close.svg");
     background-size: cover;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.3rem;
+    height: 2.3rem;
   }
 }
 @media (max-width: 500px) {
