@@ -163,6 +163,7 @@ nav menu ul .close {
     right: 1.5rem;
     background-image: url("./../assets/close.svg");
     background-size: cover;
+    cursor: pointer;
     width: 2.3rem;
     height: 2.3rem;
   }
