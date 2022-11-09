@@ -13,6 +13,7 @@ $bg-color: #E5E5E5;
 @mixin normal {
     font-weight: 400;
 }
+
 @mixin bold {
     font-weight: 700;
 }
@@ -88,6 +89,7 @@ body {
 nav {
     background-color: $darkblue;
     color: $white;
+
     .sec-cont {
         padding: 1rem 0
     }
@@ -97,7 +99,7 @@ nav {
         width: 100%;
         height: auto;
         margin: auto 0;
-        
+
         .logo {
             display: inline-block;
             background-image: url('/assets/logo.svg');
@@ -107,7 +109,7 @@ nav {
             width: 8rem;
             height: 5rem;
         }
-   
+
         h1 {
             display: inline-block;
             height: 100%;
@@ -120,6 +122,10 @@ nav {
             span {
                 margin-right: .58rem;
             }
+        }
+
+        .hamburger {
+            display: none;
         }
     }
 
@@ -143,43 +149,100 @@ nav {
                     color: $skyblue;
                 }
             }
+
+            .close {
+                display: none;
+            }
         }
     }
 }
 
 @media (max-width: 950px) {
     nav {
+
         .logo-hbg-cont {
             width: 100%;
 
             .logo {
                 transform: translateY(.2rem);
             }
+
             h1 {
                 height: auto;
                 text-align: left;
                 line-height: 1.7rem;
                 font-size: 24px;
                 transform: translateY(-.1rem);
+
                 span {
                     display: block;
                 }
+            }
+
+            .hamburger {
+                display: block;
+                margin-top: .4rem;
+                float: right;
+                width: 51px;
+                height: 32px;
+                background-image: url('/assets/hamburger.svg');
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+            }
+        }
+
+        // Mobile Menu
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
             }
         }
 
         menu {
             display: none;
-        }
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 99;
+            padding: 3%;
 
-        .hamburger {
-            margin-top: .4rem;
-            float: right;
-            width: 51px;
-            height: 32px;
-            background-image: url('/assets/hamburger.svg');
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
+            ul {
+                animation: fadeIn 1s;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background-color: $darkblue;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                a {
+                    font-size: 2rem;
+                    padding: 2rem 1rem;
+                }
+
+                .close {
+                    display: block;
+                    position: absolute;
+                    top: 1.5rem;
+                    right: 1.5rem;
+                    background-image: url('./../assets/close.svg');
+                    background-size: cover;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
         }
     }
 }
@@ -222,16 +285,24 @@ nav {
         justify-content: center;
         width: 100%;
         height: auto;
-        top: 100%; right: 50%;
-        transform: translate(50%,-50%);
-        .btnOne { @include btn-primary(); margin-right: 1rem;}
-        .btnTwo { @include btn-secondary();}
+        top: 100%;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        .btnOne {
+            @include btn-primary();
+            margin-right: 1rem;
+        }
+
+        .btnTwo {
+            @include btn-secondary();
+        }
     }
 }
 
 @media (max-width: 950px) {
     .banner {
-        > div {
+        >div {
             bottom: -80%;
             flex-direction: column-reverse;
             padding: 0 5%;
@@ -239,7 +310,8 @@ nav {
             align-items: center;
 
 
-            .btnOne, .btnTwo { 
+            .btnOne,
+            .btnTwo {
                 margin-right: 0;
                 font-size: 24px;
             }
@@ -252,17 +324,18 @@ nav {
                 text-decoration: underline;
             }
         }
-    }    
+    }
 }
 
 @media (max-width: 500px) {
     .banner {
         height: 15rem;
 
-        > div {
+        >div {
             bottom: -150%;
 
-            .btnOne, .btnTwo { 
+            .btnOne,
+            .btnTwo {
                 font-size: 20px;
             }
 
@@ -275,7 +348,12 @@ nav {
 
 .reviews {
     margin: 10rem 0;
-    .sec-cont {display: flex; justify-content: space-between;}
+
+    .sec-cont {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .review {
         width: 45%;
         height: auto;
@@ -285,6 +363,7 @@ nav {
             width: auto;
             height: 100%;
             margin-right: 1rem;
+
             .user-icon {
                 width: 5rem;
                 height: 5rem;
@@ -296,13 +375,13 @@ nav {
         }
 
         .description {
-            p { 
+            p {
                 font-size: 1.1rem
             }
-            
+
             .review-text {
                 @include italic();
-                font-size: 1.5rem;    
+                font-size: 1.5rem;
                 margin-bottom: .7rem;
             }
         }
@@ -312,6 +391,7 @@ nav {
 @media (max-width: 950px) {
     .reviews {
         margin: 15rem 0 7rem 0;
+
         .sec-cont {
             width: 100%;
             overflow-x: scroll;
@@ -351,8 +431,9 @@ nav {
                     height: 4rem;
                 }
             }
+
             .description {
-                p{
+                p {
                     font-size: .9rem;
                 }
 
@@ -367,7 +448,8 @@ nav {
 .challenges {
     margin: 5rem 0;
 
-    .star, .star-empty {
+    .star,
+    .star-empty {
         background-image: url('/assets/star.svg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -376,6 +458,7 @@ nav {
         height: 1rem;
         margin-right: .2rem;
     }
+
     .star-empty {
         background-image: url('/assets/star-empty.svg');
     }
@@ -409,7 +492,7 @@ nav {
 
             .content {
                 padding: 1rem;
-                
+
                 >.title {
                     @include normal();
                     font-size: 28px;
@@ -441,6 +524,7 @@ nav {
                     display: flex;
                     justify-content: flex-end;
                     margin-top: 1.3rem;
+
                     >button {
                         @include btn-primary();
                         padding: .8rem 2rem;
@@ -456,11 +540,12 @@ nav {
         display: flex;
         justify-content: center;
         margin: 5rem 0;
-        
+
         .btn1 {
             margin-right: 1rem;
             @include btn-primary();
         }
+
         .btn2 {
             @include btn-secondary();
         }
@@ -470,8 +555,9 @@ nav {
 @media (max-width: 950px) {
     .challenges {
         padding: 0;
-        
-        .star, .star-empty {
+
+        .star,
+        .star-empty {
             width: .8rem;
             height: .8rem;
         }
@@ -481,6 +567,7 @@ nav {
             margin: 4rem 0;
             padding: 0 5%;
         }
+
         .boxes {
             padding-left: 15%;
             justify-content: unset;
@@ -522,7 +609,8 @@ nav {
             justify-content: unset;
             align-items: center;
 
-            .btn1, .btn2 {
+            .btn1,
+            .btn2 {
                 font-size: 24px;
                 margin: 0;
             }
@@ -549,6 +637,7 @@ nav {
                 .box-img {
                     height: 12rem;
                 }
+
                 .content {
                     .title {
                         font-size: 20px;
@@ -575,14 +664,22 @@ nav {
         }
 
         .btns-cont {
-            .btn1, .btn2 {font-size: 20px;}
-            .btn1 {font-size: 15px;}
+
+            .btn1,
+            .btn2 {
+                font-size: 20px;
+            }
+
+            .btn1 {
+                font-size: 15px;
+            }
         }
     }
 }
 
 .subinfo {
     background-color: $darkblue;
+
     .sec-cont {
         height: 30rem;
         display: flex;
@@ -599,7 +696,7 @@ nav {
         height: auto;
     }
 
-    button  {
+    button {
         margin-top: 2rem;
         @include btn-primary-dark();
     }
@@ -607,14 +704,21 @@ nav {
 
 @media (max-width: 950px) {
     .subinfo {
-        p { max-width: 100%;}
+        p {
+            max-width: 100%;
+        }
     }
 }
 
 @media (max-width: 500px) {
     .subinfo {
-        p { font-size: 1.3rem; }
-        button { font-size: 20px; }
+        p {
+            font-size: 1.3rem;
+        }
+
+        button {
+            font-size: 20px;
+        }
     }
 }
 
@@ -629,17 +733,28 @@ nav {
             width: 50%;
             height: 30rem;
         }
-    
-        .block1, .block4 {
+
+        .block1,
+        .block4 {
             background-image: url('/assets/img-one.png');
             background-size: cover;
             background-position: center;
         }
-        .block1 {order: 1;}
-        .block2 {order: 2;}
-        .block3 {order: 3;}
 
-        .block2, .block3 {
+        .block1 {
+            order: 1;
+        }
+
+        .block2 {
+            order: 2;
+        }
+
+        .block3 {
+            order: 3;
+        }
+
+        .block2,
+        .block3 {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -653,8 +768,8 @@ nav {
                 font-size: 1.5rem;
             }
         }
-    
-        .block4{
+
+        .block4 {
             order: 4;
             background-image: url('/assets/img-two.png');
         }
@@ -671,16 +786,20 @@ nav {
     .blocks {
         padding: 0;
 
-        .sec-cont  {
+        .sec-cont {
             max-width: 100%;
             margin: 0;
         }
 
         .blocks-cont {
-            .block2, .block3 {padding: 0 8rem;}
+
+            .block2,
+            .block3 {
+                padding: 0 8rem;
+            }
         }
     }
-    
+
 }
 
 @media (max-width: 1000px) {
@@ -689,10 +808,23 @@ nav {
             flex-flow: unset;
             flex-direction: column;
 
-            .block { width: 100%; height: 25rem;}
-            .block2, .block3 { padding: 0 5%; }
-            .block3{order: 4;}
-            .block4{order: 3;}
+            .block {
+                width: 100%;
+                height: 25rem;
+            }
+
+            .block2,
+            .block3 {
+                padding: 0 5%;
+            }
+
+            .block3 {
+                order: 4;
+            }
+
+            .block4 {
+                order: 3;
+            }
         }
     }
 }
@@ -701,9 +833,17 @@ nav {
     .blocks {
         .blocks-cont {
             .block {
-                h2 { font-size: 1.5rem; }
-                p { font-size: 1.1rem; }
-                button { font-size: 1.1rem; }
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                }
+
+                button {
+                    font-size: 1.1rem;
+                }
             }
         }
     }
@@ -713,17 +853,27 @@ footer {
     background-color: $darkblue;
     margin-top: 10rem;
     color: $white;
-    
-    a, h5, p {
+
+    a,
+    h5,
+    p {
         color: $white;
         display: block;
         font-size: 1.1rem;
         margin-bottom: .6rem;
     }
 
-    a { margin-bottom: .2rem;}
-    h5 {pointer-events: none;}
-    a:hover {color: $skyblue;}
+    a {
+        margin-bottom: .2rem;
+    }
+
+    h5 {
+        pointer-events: none;
+    }
+
+    a:hover {
+        color: $skyblue;
+    }
 
     .sec-cont {
         padding: 13rem 0;
@@ -731,11 +881,16 @@ footer {
         justify-content: space-between;
     }
 
-    .footer-text { width: 40%;}
+    .footer-text {
+        width: 40%;
+    }
 
     .links {
         display: flex;
-        >div {width: 10rem;}
+
+        >div {
+            width: 10rem;
+        }
     }
 }
 
@@ -754,6 +909,7 @@ footer {
             .links {
                 flex-direction: column;
                 width: inherit;
+
                 a {
                     text-decoration: none;
                 }
@@ -768,6 +924,11 @@ footer {
 
 @media (max-width: 500px) {
     footer {
-        a, h5, p{font-size: .9rem;}
+
+        a,
+        h5,
+        p {
+            font-size: .9rem;
+        }
     }
 }

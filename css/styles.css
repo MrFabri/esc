@@ -64,6 +64,9 @@ nav .logo-hbg-cont h1 {
 nav .logo-hbg-cont h1 span {
   margin-right: 0.58rem;
 }
+nav .logo-hbg-cont .hamburger {
+  display: none;
+}
 nav menu {
   width: 100%;
   height: 3.2rem;
@@ -83,6 +86,9 @@ nav menu ul a {
 nav menu ul a:hover {
   color: #8ACFE5;
 }
+nav menu ul .close {
+  display: none;
+}
 
 @media (max-width: 950px) {
   nav .logo-hbg-cont {
@@ -101,10 +107,8 @@ nav menu ul a:hover {
   nav .logo-hbg-cont h1 span {
     display: block;
   }
-  nav menu {
-    display: none;
-  }
-  nav .hamburger {
+  nav .logo-hbg-cont .hamburger {
+    display: block;
     margin-top: 0.4rem;
     float: right;
     width: 51px;
@@ -113,6 +117,50 @@ nav menu ul a:hover {
     background-size: cover;
     background-position: center;
     cursor: pointer;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  nav menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 99;
+    padding: 3%;
+  }
+  nav menu ul {
+    animation: fadeIn 1s;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #011827;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  nav menu ul a {
+    font-size: 2rem;
+    padding: 2rem 1rem;
+  }
+  nav menu ul .close {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-image: url("./../assets/close.svg");
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 @media (max-width: 500px) {
@@ -184,7 +232,8 @@ nav menu ul a:hover {
     justify-content: unset;
     align-items: center;
   }
-  .banner > div .btnOne, .banner > div .btnTwo {
+  .banner > div .btnOne,
+.banner > div .btnTwo {
     margin-right: 0;
     font-size: 24px;
   }
@@ -203,7 +252,8 @@ nav menu ul a:hover {
   .banner > div {
     bottom: -150%;
   }
-  .banner > div .btnOne, .banner > div .btnTwo {
+  .banner > div .btnOne,
+.banner > div .btnTwo {
     font-size: 20px;
   }
   .banner > div .btnOne {
@@ -286,7 +336,8 @@ nav menu ul a:hover {
 .challenges {
   margin: 5rem 0;
 }
-.challenges .star, .challenges .star-empty {
+.challenges .star,
+.challenges .star-empty {
   background-image: url("/assets/star.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -401,7 +452,8 @@ nav menu ul a:hover {
   .challenges {
     padding: 0;
   }
-  .challenges .star, .challenges .star-empty {
+  .challenges .star,
+.challenges .star-empty {
     width: 0.8rem;
     height: 0.8rem;
   }
@@ -443,7 +495,8 @@ nav menu ul a:hover {
     justify-content: unset;
     align-items: center;
   }
-  .challenges .btns-cont .btn1, .challenges .btns-cont .btn2 {
+  .challenges .btns-cont .btn1,
+.challenges .btns-cont .btn2 {
     font-size: 24px;
     margin: 0;
   }
@@ -475,7 +528,8 @@ nav menu ul a:hover {
     padding: 0.7rem 1.5rem;
     font-size: 15px;
   }
-  .challenges .btns-cont .btn1, .challenges .btns-cont .btn2 {
+  .challenges .btns-cont .btn1,
+.challenges .btns-cont .btn2 {
     font-size: 20px;
   }
   .challenges .btns-cont .btn1 {
@@ -539,7 +593,8 @@ nav menu ul a:hover {
   width: 50%;
   height: 30rem;
 }
-.blocks .blocks-cont .block1, .blocks .blocks-cont .block4 {
+.blocks .blocks-cont .block1,
+.blocks .blocks-cont .block4 {
   background-image: url("/assets/img-one.png");
   background-size: cover;
   background-position: center;
@@ -553,16 +608,19 @@ nav menu ul a:hover {
 .blocks .blocks-cont .block3 {
   order: 3;
 }
-.blocks .blocks-cont .block2, .blocks .blocks-cont .block3 {
+.blocks .blocks-cont .block2,
+.blocks .blocks-cont .block3 {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 6rem;
 }
-.blocks .blocks-cont .block2 h2, .blocks .blocks-cont .block3 h2 {
+.blocks .blocks-cont .block2 h2,
+.blocks .blocks-cont .block3 h2 {
   font-size: 2rem;
 }
-.blocks .blocks-cont .block2 p, .blocks .blocks-cont .block3 p {
+.blocks .blocks-cont .block2 p,
+.blocks .blocks-cont .block3 p {
   font-size: 1.5rem;
 }
 .blocks .blocks-cont .block4 {
@@ -591,7 +649,8 @@ nav menu ul a:hover {
     max-width: 100%;
     margin: 0;
   }
-  .blocks .blocks-cont .block2, .blocks .blocks-cont .block3 {
+  .blocks .blocks-cont .block2,
+.blocks .blocks-cont .block3 {
     padding: 0 8rem;
   }
 }
@@ -604,7 +663,8 @@ nav menu ul a:hover {
     width: 100%;
     height: 25rem;
   }
-  .blocks .blocks-cont .block2, .blocks .blocks-cont .block3 {
+  .blocks .blocks-cont .block2,
+.blocks .blocks-cont .block3 {
     padding: 0 5%;
   }
   .blocks .blocks-cont .block3 {
@@ -630,7 +690,9 @@ footer {
   margin-top: 10rem;
   color: #FFFFFF;
 }
-footer a, footer h5, footer p {
+footer a,
+footer h5,
+footer p {
   color: #FFFFFF;
   display: block;
   font-size: 1.1rem;
@@ -682,7 +744,9 @@ footer .links > div {
   }
 }
 @media (max-width: 500px) {
-  footer a, footer h5, footer p {
+  footer a,
+footer h5,
+footer p {
     font-size: 0.9rem;
   }
 }
